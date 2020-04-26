@@ -1,15 +1,15 @@
-version: "3"
+version: "3.8"
 services:
   oracle:
     image: oracle/database:19.3.0-ee
-    container_name: oracle-db-19c-ee
-    shm_size: "1gb"
+    container_name: oracledb-19c
     ports:
       - "5500:5500"
       - "1521:1521"
+    volumes:
+      - /home/oracle/metaphysics/oracle/oradata:/opt/oracle/oradata
     environment:
       - ORACLE_SID=ORCLCDB
       - ORACLE_PDB=ORCLPDB1
       - ORACLE_PWD=password
       - ORACLE_CHARACTERSET=AL32UTF8
-
